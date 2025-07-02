@@ -65,11 +65,11 @@ elasticsearch:
     name: sms_requests
 
 # Third Party SMS API Configuration
-sms:
-  api:
-    url: https://api.imiconnect.in/resources/v1/messaging
-    key: ${SMS_API_KEY:your-api-key-here}
-    timeout: 10000
+# sms:
+#   api:
+#     url: https://api.imiconnect.in/resources/v1/messaging
+#     key: ${SMS_API_KEY:your-api-key-here}
+#     timeout: 10000
 
 # Logging Configuration
 logging:
