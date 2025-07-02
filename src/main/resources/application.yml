@@ -9,9 +9,9 @@ spring:
   
   # Database Configuration
   datasource:
-    url: jdbc:mysql://localhost:3306/notification_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: notification_user
-    password: password
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/notification_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    username: ${SPRING_DATASOURCE_USERNAME:notification_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 10
@@ -32,8 +32,8 @@ spring:
   
   # Redis Configuration
   redis:
-    host: localhost
-    port: 6379
+    host: ${SPRING_REDIS_HOST:localhost}
+    port: ${SPRING_REDIS_PORT:6379}
     timeout: 2000ms
     lettuce:
       pool:
@@ -44,7 +44,7 @@ spring:
   
   # Kafka Configuration
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     consumer:
       group-id: notification-consumer-group
       auto-offset-reset: earliest
@@ -58,8 +58,8 @@ spring:
 
 # Elasticsearch Configuration
 elasticsearch:
-  host: localhost
-  port: 9200
+  host: ${ELASTICSEARCH_HOST:localhost}
+  port: ${ELASTICSEARCH_PORT:9200}
   scheme: http
   index:
     name: sms_requests
